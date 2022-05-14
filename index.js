@@ -14,7 +14,7 @@ app.use('/users',getRouter);
 app.use('/mentor',mentor_student_Router);
 app.use('/student',mentor_student_Router);
 
-app.listen('3000');
+app.listen('3001');
 
 
 //Middleware
