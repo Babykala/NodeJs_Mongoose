@@ -14,27 +14,5 @@ app.use('/users',getRouter);
 app.use('/mentor',mentor_student_Router);
 app.use('/student',mentor_student_Router);
 
-app.listen('3001');
+app.listen('3000');
 
-
-//Middleware
-// app.use("/",(req,res,next)=>{
-//     //res.send("Hi,welcome to our session");
-//     next();
-// })
-
-// app.use("/3",(req,res,next)=>{
-//    if('hi'==='hi'){
-//        res.send('correct user')
-//    }
-//    else{
-//        res.send('wrong user')
-//    }
-// })
-
-// app.use("/users",(req,res,next)=>{
-//     res.send({
-//         name:'yyy',
-//         age:23
-//     });
-// })
