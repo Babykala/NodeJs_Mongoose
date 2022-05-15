@@ -52,10 +52,31 @@ exports.deleteStudent=async(req,res,next)=>{
   
 }
 
-//No. of Students who have not assign mentor
+//Get student data
 exports.getStudent=async(req,res,next)=>{
     try{
-           var response=await mentor_Student_Model.Student.aggregate([
+           var students=await mentor_Student_Model.Student.find();
+           res.send(students);
+       }
+       catch(e){console.log(e)}
+  
+}
+
+//Get mentor data
+exports.getMentor=async(req,res,next)=>{
+    try{
+           var mentor=await mentor_Student_Model.Mentor.find();
+           res.send(mentor);
+       }
+       catch(e){console.log(e)}
+  
+}
+
+
+//No. of Students who have not assign mentor
+exports.getstudentnotassignmentor=async(req,res,next)=>{
+    try{
+           var resp=await mentor_Student_Model.Student.aggregate([
                {$group:{
                 _id:"$mentorName",
                 noOfMentees:{$sum:1},
@@ -63,7 +84,7 @@ exports.getStudent=async(req,res,next)=>{
                {$match:{'_id':null}},
                {$project:{'_id':0}}
            ])
-           res.send(response);
+           res.send(resp);
        }
        catch(e){console.log(e)}
   
