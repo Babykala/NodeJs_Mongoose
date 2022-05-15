@@ -4,6 +4,10 @@ const router=express.Router();
 
 const getModule=require('../module/mentor_student.js');
 
+router.get('/findmentor',getModule.createMentor);
+
+router.get('/getstudent',getModule.createStudent);
+
 router.post('/create',getModule.createMentor);
 
 router.post('/post',getModule.createStudent);
